@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaultify — Choose Your Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080a0f;
+    --surface: #0e1118;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --blue: #3b82f6;
+    --blue-glow: rgba(59,130,246,0.15);
+    --purple: #8b5cf6;
+    --purple-glow: rgba(139,92,246,0.15);
+    --red: #ef4444;
+    --red-glow: rgba(239,68,68,0.15);
+    --gold: #f59e0b;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 60px 20px 80px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(139,92,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 56px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    color: #fff;
+  }
+
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .header p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 28px 24px 32px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.6s ease both;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+  .card:nth-child(3) { animation-delay: 0.3s; }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .card.free::before { background: var(--blue); }
+  .card.vault::before { background: var(--purple); }
+  .card.pro::before { background: var(--red); }
+
+  .card.pro {
+    border-color: rgba(239,68,68,0.25);
+    box-shadow: 0 0 40px rgba(239,68,68,0.08);
+  }
+
+  .card.pro:hover {
+    box-shadow: 0 8px 48px rgba(239,68,68,0.15);
+  }
+
+  .card.vault:hover {
+    box-shadow: 0 8px 48px rgba(139,92,246,0.12);
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .free .badge { background: var(--blue-glow); color: var(--blue); border: 1px solid rgba(59,130,246,0.2); }
+  .vault .badge { background: var(--purple-glow); color: var(--purple); border: 1px solid rgba(139,92,246,0.2); }
+  .pro .badge { background: var(--red-glow); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
+
+  .popular-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--red);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .tier-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .price {
+    margin-bottom: 6px;
+  }
+
+  .price-amount {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #fff;
+  }
+
+  .price-period {
+    font-size: 14px;
+    color: var(--muted);
+    margin-left: 4px;
+  }
+
+  .price-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    min-height: 18px;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 20px;
+  }
+
+  .features-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 11px;
+    font-size: 13.5px;
+    color: #c4c9d4;
+    line-height: 1.4;
+  }
+
+  .check {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    margin-top: 1px;
+  }
+
+  .free .check { background: var(--blue-glow); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+  .vault .check { background: var(--purple-glow); color: var(--purple); border: 1px solid rgba(139,92,246,0.3); }
+  .pro .check { background: var(--red-glow); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 24px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .free .btn {
+    background: rgba(59,130,246,0.1);
+    color: var(--blue);
+    border: 1px solid rgba(59,130,246,0.25);
+  }
+  .free .btn:hover {
+    background: rgba(59,130,246,0.2);
+  }
+
+  .vault .btn {
+    background: rgba(139,92,246,0.1);
+    color: var(--purple);
+    border: 1px solid rgba(139,92,246,0.25);
+  }
+  .vault .btn:hover {
+    background: rgba(139,92,246,0.2);
+  }
+
+  .pro .btn {
+    background: var(--red);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(239,68,68,0.3);
+  }
+  .pro .btn:hover {
+    background: #dc2626;
+    box-shadow: 0 6px 28px rgba(239,68,68,0.45);
+    transform: translateY(-1px);
+  }
+
+  .footer-note {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--muted);
+    animation: fadeUp 0.6s ease 0.5s both;
+  }
+
+  .footer-note span {
+    color: var(--gold);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="logo">
+      <div class="logo-icon">💰</div>
+      <span class="logo-text">VAULTIFY</span>
+    </div>
+    <h1>Choose Your Plan</h1>
+    <p>Built for authentic eBay sellers who are tired of losing listings to false counterfeit strikes.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- FREE -->
+    <div class="card free">
+      <div class="badge">Free</div>
+      <div class="tier-name">Free</div>
+      <div class="price">
+        <span class="price-amount">$0</span>
+      </div>
+      <div class="price-sub">No credit card needed</div>
+      <div class="divider"></div>
+      <div class="features-label">What's included</div>
+      <div class="feature"><span class="check">✓</span> Foundation course — why listings get flagged</div>
+      <div class="feature"><span class="check">✓</span> How the trust score system works</div>
+      <div class="feature"><span class="check">✓</span> Free mini course access</div>
+      <div class="feature"><span class="check">✓</span> Community chat</div>
+      <div class="feature"><span class="check">✓</span> Announcements</div>
+      <a href="YOUR_FREE_LINK_HERE" class="btn">Join Free →</a>
+    </div>
+
+    <!-- VAULT PASS -->
+    <div class="card vault">
+      <div class="badge">One-Time</div>
+      <div class="tier-name">Vault Pass</div>
+      <div class="price">
+        <span class="price-amount">$97</span>
+      </div>
+      <div class="price-sub">Yours forever — no subscription</div>
+      <div class="divider"></div>
+      <div class="features-label">Everything in Free, plus</div>
+      <div class="feature"><span class="check">✓</span> Full course — every module unlocked</div>
+      <div class="feature"><span class="check">✓</span> Safe listing framework (photos, titles, watermarking)</div>
+      <div class="feature"><span class="check">✓</span> Mid-recovery removal reset module</div>
+      <div class="feature"><span class="check">✓</span> Scaling back up safely module</div>
+      <div class="feature"><span class="check">✓</span> VeRO explained — AI removals vs brand takedowns</div>
+      <div class="feature"><span class="check">✓</span> All PDF resources + safe listing templates</div>
+      <div class="feature"><span class="check">✓</span> Direct access via DM</div>
+      <a href="YOUR_VAULT_LINK_HERE" class="btn">Get Vault Pass →</a>
+    </div>
+
+    <!-- PRO -->
+    <div class="card pro">
+      <div class="badge">Monthly</div>
+      <div class="popular-tag">Most Popular</div>
+      <div class="tier-name">Pro</div>
+      <div class="price">
+        <span class="price-amount">$19</span>
+        <span class="price-period">/month</span>
+      </div>
+      <div class="price-sub">Cancel anytime</div>
+      <div class="divider"></div>
+      <div class="features-label">Everything in Vault Pass, plus</div>
+      <div class="feature"><span class="check">✓</span> Pro members-only chat</div>
+      <div class="feature"><span class="check">✓</span> Monthly live Q&A sessions</div>
+      <div class="feature"><span class="check">✓</span> Live listing review calls</div>
+      <div class="feature"><span class="check">✓</span> Call recordings — never miss a session</div>
+      <div class="feature"><span class="check">✓</span> Post wins + listing reviews app</div>
+      <div class="feature"><span class="check">✓</span> eBay enforcement alerts</div>
+      <div class="feature"><span class="check">✓</span> Priority support from me + the Pro community</div>
+      <a href="YOUR_PRO_LINK_HERE" class="btn">Join Pro →</a>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <span>4.9★</span> rated by Vaultify members &nbsp;·&nbsp; Built by a seller who went through it &nbsp;·&nbsp; No fluff, no loopholes
+  </div>
+
+</div>
+</body>
+</html>
