@@ -32,15 +32,25 @@
     .ownership{margin:24px auto 0;max-width:670px;text-align:center;color:#c9c0d5;font-size:13px;line-height:1.8}
     .featured .price{margin-top:25px}
     @media(max-width:720px){.steps{display:block}.current .card{margin-top:0}main{max-width:510px}.ownership{margin-top:0;padding:0 8px}footer{padding-top:24px}}
+      .plan-name{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .beta-tag{font:700 10px Inter,Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:#d5baff;background:#30213f;border:1px solid #654587;border-radius:6px;padding:5px 7px}
+    .beta-offer{margin:20px 0 0;padding:16px;border:1px solid #654587;border-radius:10px;background:linear-gradient(120deg,#30203f,#1c1626);font-size:12px;line-height:1.7;color:#d6c5e9}
+    .beta-offer strong{display:block;color:#f0e6ff;font-size:14px;margin-bottom:5px}
+    .activation{margin-top:24px;padding:19px;border:1px solid #725393;border-radius:12px;background:#261d33}
+    .activation h3,.after-beta h3{font-size:14px;margin:0 0 8px;color:#eee4fc}
+    .activation p,.after-beta p{font-size:12px;line-height:1.8;margin:0;color:#c9bfd6}
+    .activation small{display:block;font-size:11px;line-height:1.7;color:#b5a6c7;margin-top:9px}
+    .after-beta{margin-top:20px;padding-top:20px;border-top:1px solid #ffffff15}
+    .cta.secondary{background:#211b2c;color:#d7c2f5;box-shadow:none;border-color:#65517d;font-size:13px;margin-top:16px}
   </style>
 </head>
 <body>
   <main>
     <header>
       <div class="brand"><span class="brand-icon" aria-hidden="true">💰</span>VAULTIFY</div>
-      <h1>Your Next Step:<br>Ongoing Support</h1>
-      <p class="intro">You have the complete process. Get ongoing help<br>putting it into practice with Pro.</p>
-      <div class="journey" aria-hidden="true"><span>✓ VaultPass unlocked</span><span class="arrow">→</span><strong>Pro · Optional support</strong></div>
+      <h1>Your Next Step:<br>60 Days of Pro</h1>
+      <p class="intro">Your VaultPass includes 60 days of free Pro beta access.<br>Get help putting the complete process into practice.</p>
+      <div class="journey" aria-hidden="true"><span>✓ VaultPass unlocked</span><span class="arrow">→</span><strong>Pro · 60 days included</strong></div>
     </header>
     <ol class="steps" start="2" aria-label="Your path after unlocking VaultPass">
       <li class="step current">
@@ -64,12 +74,12 @@
       <li class="step featured">
         <div class="step-top"><span class="number">3</span><span>SUPPORT WHEN YOU NEED IT</span></div>
         <section class="card" aria-labelledby="pro-heading">
-          <span class="badge">OPTIONAL NEXT STEP</span>
-          <p class="plan-name">Pro</p>
+          <span class="badge">INCLUDED WITH VAULTPASS</span>
+          <p class="plan-name">Pro <span class="beta-tag">Beta</span></p>
           <h2 id="pro-heading">Get Ongoing Support</h2>
-          <p class="price">$14 <span>/month</span></p>
-          <p class="price-note">For VaultPass members</p>
-          <p class="description">You know the VaultPass system. Pro gives you ongoing help applying it to your account, with space to ask questions, get listing feedback, and stay informed.</p>
+          <p class="price">$0 <span>for 60 days</span></p>
+          <p class="price-note">Free beta access. No automatic billing.</p>
+          <p class="description">Pro is in beta, and we’re building the community with early VaultPass members. Join the chat, bring your questions to live Q&amp;As, and get feedback on your listings as you apply the course.</p>
           <ul class="features">
             <li>Pro members-only chat</li>
             <li>Live Q&amp;A sessions</li>
@@ -77,8 +87,17 @@
             <li>eBay enforcement alerts</li>
             <li>Ongoing community support</li>
           </ul>
-          <a class="cta" id="pro-checkout" href="https://whop.com/checkout/plan_2Ku78VJaFyll0" aria-describedby="ownership">Join Pro — $14/month <span aria-hidden="true">↗</span></a>
-          <p class="recommendation">Extra support, whenever you’re ready.</p>
+          <div class="activation">
+            <h3>Activate your included 60 days</h3>
+            <p>Open your VaultPass welcome DM and use the free Pro access link to join. Buying VaultPass does not automatically add you to Pro.</p>
+            <small>Can’t find the link? Message me in Whop and I’ll help you get access.</small>
+          </div>
+          <div class="after-beta">
+            <h3>What happens after 60 days?</h3>
+            <p>Your free Pro access ends without an automatic charge. If you want to stay, choose the $14/month subscription for continued access to the chat, live Q&amp;As, listing reviews, and enforcement updates. Your VaultPass course and PDFs stay yours permanently either way.</p>
+            <a class="cta secondary" id="pro-checkout" href="https://whop.com/checkout/plan_2Ku78VJaFyll0" aria-describedby="paid-note">Join paid Pro — $14/month <span aria-hidden="true">↗</span></a>
+            <p class="recommendation" id="paid-note">This button opens the paid subscription. For your included 60 days, use the free link in your welcome DM instead. Already subscribed? No need to purchase again.</p>
+          </div>
         </section>
       </li>
     </ol>
