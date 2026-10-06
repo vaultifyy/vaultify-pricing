@@ -22,6 +22,17 @@
     @media(max-width:900px){main{padding:32px 22px}.steps{gap:12px;grid-template-columns:1fr 1.18fr 1fr}.card{padding:22px 17px}.featured .card{padding:26px 20px}.step:not(:last-child) .step-top:after{margin-right:-12px}.price{font-size:37px}.plan-name{font-size:21px}}
     @media(max-width:720px){main{max-width:510px;padding:28px 20px}.brand{font-size:21px}.brand-icon{width:31px;height:34px;font-size:17px}h1{letter-spacing:-1.4px;margin-top:25px}.intro{font-size:14px;max-width:340px}.journey{font-size:11px;gap:10px;margin:23px 0 26px}.steps{display:block;padding-left:26px;position:relative}.steps:before{content:"";position:absolute;left:9px;top:24px;bottom:40px;width:1px;background:linear-gradient(#395176 0%,#9b6ae3 45%,#39323e 85%)}.step{padding-bottom:22px}.step-top{height:40px;gap:0}.number{position:absolute;left:-29px;width:25px;height:25px}.step-top>span:last-child{margin-left:7px}.step:not(:last-child) .step-top:after{display:none}.card,.featured .card{padding:24px 22px;border-radius:14px}.current .card,.later .card{margin-top:0}.plan-name{margin-top:18px;font-size:24px}.price,.featured .price{margin-top:19px;font-size:44px}.description{margin-top:18px;padding-bottom:19px}.features{gap:11px}.features li{font-size:13px}.current-state,.later-state{margin-top:22px}footer{padding-top:0}.footer-path{max-width:280px;margin:0 auto 10px}}
     @media(prefers-reduced-motion:reduce){.cta{transition:none}}
+  
+    .plan-name{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .beta-tag{font:700 10px Inter,Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:#d5baff;background:#30213f;border:1px solid #654587;border-radius:6px;padding:5px 7px}
+    .beta-offer{margin:20px 0 0;padding:16px;border:1px solid #654587;border-radius:10px;background:linear-gradient(120deg,#30203f,#1c1626);font-size:12px;line-height:1.7;color:#d6c5e9}
+    .beta-offer strong{display:block;color:#f0e6ff;font-size:14px;margin-bottom:5px}
+    .activation{margin-top:24px;padding:19px;border:1px solid #725393;border-radius:12px;background:#261d33}
+    .activation h3,.after-beta h3{font-size:14px;margin:0 0 8px;color:#eee4fc}
+    .activation p,.after-beta p{font-size:12px;line-height:1.8;margin:0;color:#c9bfd6}
+    .activation small{display:block;font-size:11px;line-height:1.7;color:#b5a6c7;margin-top:9px}
+    .after-beta{margin-top:20px;padding-top:20px;border-top:1px solid #ffffff15}
+    .cta.secondary{background:#211b2c;color:#d7c2f5;box-shadow:none;border-color:#65517d;font-size:13px;margin-top:16px}
   </style>
 </head>
 <body>
@@ -57,7 +68,7 @@
           <span class="badge">NEXT STEP</span>
           <p class="plan-name">VaultPass</p>
           <h2 id="vaultpass-heading">Follow the Complete Process</h2>
-          <p class="price">$49 <span>one time</span></p>
+          <p class="price">$97 <span>one time</span></p>
           <p class="price-note">Permanent access. No subscription.</p>
           <p class="description">VaultPass takes you from understanding the problem to actually implementing the complete rebuild and reintroduction process for legitimate higher-risk inventory.</p>
           <ul class="features">
@@ -70,19 +81,20 @@
             <li>Templates and PDF resources</li>
             <li>Direct support via DM</li>
           </ul>
-          <a class="cta" id="vaultpass-checkout" href="https://whop.com/checkout/plan_cuXHt11kh78WA" aria-describedby="recommendation">Unlock VaultPass — $49 <span aria-hidden="true">↗</span></a>
+          <div class="beta-offer"><strong>Includes 60 days of Pro — free</strong>Get extra help putting the course into practice while Pro is in beta. Activate your access using the link in your VaultPass welcome DM.</div>
+          <a class="cta" id="vaultpass-checkout" href="https://whop.com/checkout/plan_cuXHt11kh78WA" aria-describedby="recommendation">Unlock VaultPass — $97 <span aria-hidden="true">↗</span></a>
           <p class="recommendation" id="recommendation">This is the recommended next step after completing Vaultify Free.</p>
         </section>
       </li>
       <li class="step later">
         <div class="step-top"><span class="number">3</span><span>ONGOING SUPPORT</span></div>
         <section class="card" aria-labelledby="pro-heading">
-          <span class="badge">OPTIONAL LATER</span>
-          <p class="plan-name">Pro</p>
+          <span class="badge">INCLUDED FOR 60 DAYS</span>
+          <p class="plan-name">Pro <span class="beta-tag">Beta</span></p>
           <h2 id="pro-heading">Get Ongoing Support</h2>
-          <p class="price">$14<span>/month</span></p>
-          <p class="price-note">for VaultPass members</p>
-          <p class="description">Once you understand the full VaultPass system, Pro is available if you want ongoing help applying it to your account.</p>
+          <p class="price">$0<span>for 60 days</span></p>
+          <p class="price-note">Pro beta access included with VaultPass</p>
+          <p class="description">Put the VaultPass process into practice with listing feedback, live Q&amp;As, and a growing member community. Your first 60 days are included while Pro is in beta.</p>
           <ul class="features">
             <li>Pro members-only chat</li>
             <li>Live Q&amp;A sessions</li>
@@ -90,7 +102,7 @@
             <li>eBay enforcement alerts</li>
             <li>Ongoing community support</li>
           </ul>
-          <div class="later-state">Available after VaultPass</div>
+          <div class="later-state">Start with VaultPass to get access</div><p class="recommendation">No automatic billing. After 60 days, choose whether to continue Pro for $14/month. VaultPass stays yours permanently.</p>
         </section>
       </li>
     </ol>
