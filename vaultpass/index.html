@@ -18,6 +18,27 @@
 @media(max-width:680px){.wrap{width:calc(100% - 36px)}.nav{padding:21px 0}.nav-label{font-size:9px}.brand{font-size:18px}.hero{grid-template-columns:1fr;padding:36px 0 55px;gap:38px}h1{font-size:42px;letter-spacing:-1.8px}.hero-copy>p:not(.eyebrow){font-size:14px}.hero .actions{align-items:stretch;gap:18px}.hero .button{width:100%}.text-link{width:100%;text-align:center}.hero-foot{justify-content:center;font-size:10px;gap:13px}.product{max-width:420px;width:100%;margin:auto;padding:26px}.vault-symbol{margin-top:24px;width:49px;height:49px}.pass-name{font-size:34px}.product-list{padding:18px 0;margin-top:18px;gap:9px}.section{padding:55px 0}.comparison,.feature-grid,.stories,.beta-box,.faq-layout{grid-template-columns:1fr}.panel,.feature{padding:24px}.feature-grid{gap:12px}.icon{margin-bottom:18px}.feature h3{font-size:17px}.journey{grid-template-columns:1fr;gap:28px}.journey li{padding-left:58px}.step-num{position:absolute;left:0;top:0;margin:0}.journey li:not(:last-child):after{left:19px;top:48px;width:1px;height:calc(100% - 22px);background:#493454}.journey p{margin-top:9px}.stories{gap:12px}.story-placeholder{min-height:0;padding:22px}.quote-mark{float:left;margin-right:14px}.story-placeholder h3{margin-top:0}.beta-box{padding:25px;gap:24px}.beta-box h2{font-size:30px}.faq-layout{gap:4px}.faq-layout .section-heading{margin-bottom:25px}.final{padding:45px 22px;margin-bottom:45px}.final .button{width:100%}.footer{flex-direction:column;gap:8px}.section-heading{margin-bottom:27px}}
 .hero>*{min-width:0}h1{overflow-wrap:break-word}.hero-copy>p.fine{font-size:12px;margin-top:4px;line-height:1.75}@media(max-width:680px){h1{font-size:36px}.nav-label{display:none}.comparison>*,.feature-grid>*,.beta-box>*,.faq-layout>*{min-width:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+
+/* Readability and section contrast; purple remains the purchase accent. */
+:root{--muted:#c0bbcc}
+.hero-copy>p:not(.eyebrow){color:#c9c3d5}
+.fine,.nav-label,.feature p,.journey p,.faq details p,.comparison-note{color:var(--muted)}
+.product-sub,.product-bottom{color:#cbbdd9}
+.disclaimer,.footer{color:#b3aabc}
+.feature-index{color:#afa2be}
+.story-placeholder p{color:#b8adc5}
+.hero-foot{color:#bfb5cc}
+.section{position:relative;isolation:isolate}
+.section:nth-of-type(even)::before{content:"";position:absolute;inset:0;background:#121219;box-shadow:0 0 0 100vmax #121219;clip-path:inset(0 -100vmax);z-index:-1;pointer-events:none}
+.beta-box{background:radial-gradient(ellipse at 0 0,#285d5540,transparent 70%),#101c1b;border-color:#38665f}
+.beta-box .eyebrow{color:#9ddacc}
+.beta-label{background:#203e38;border-color:#4c8275;color:#c0efe1}
+.beta-box .description{color:#c0d4cf}
+.beta-box .checklist li{color:#c9dcd5}
+.beta-box .checklist li:before{color:#9bdbc7}
+.terms{background:#11221e;border-color:#36594f}
+.terms h3,.terms strong{color:#e2f1eb}
+.terms ol,.terms .fine{color:#bed3ca}
 </style>
 </head>
 <body>
